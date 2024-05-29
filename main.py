@@ -47,7 +47,7 @@ def get_stream_id():
     }
     session = requests.session()
     res = session.get(url, headers=headers)
-    stream_id = res.json()['data']['data'][forward_list_row]['id']
+    stream_id = res.json()['data']['data'][int(forward_list_row_x)]['id']
     return stream_id
 
 
@@ -79,10 +79,7 @@ def change_ip(ip):
     }
     session = requests.session()
     res = session.put(url_put, headers=headers, data=data)
-    if res.status_code == '200':
-        print("update successful.")
-    else:
-        print("update failed")
+    print(res)
 
 def get_ipAddresses(domain):
     ipAddresses = [0]
