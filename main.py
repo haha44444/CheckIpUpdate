@@ -64,7 +64,7 @@ def get_id():
 
 
 def change_ip(ip):
-    url_put = f'{url_website}/prod-api/stream_source/105'
+    url_put = f'{url_website}/prod-api/stream_source/{get_id()}'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0',
         'Authorization': f'Bearer {get_cookie()}'
