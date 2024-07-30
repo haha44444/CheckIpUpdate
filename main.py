@@ -24,7 +24,7 @@ weight = f'15'
 forward_list_row_x = f'0'
 
 
-def get_cookie():
+def get_token():
     url = f'{url_website}/prod-api/login'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0'
@@ -43,7 +43,7 @@ def get_stream_id():
     url = f'{url_website}/prod-api/stream?listen_port=&cname=&stream_id=&status=&current_page=1&total=0&page_size=10'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0',
-        'Authorization': f'Bearer {get_cookie()}'
+        'Authorization': f'Bearer {get_token()}'
     }
     session = requests.session()
     res = session.get(url, headers=headers)
@@ -55,7 +55,7 @@ def get_id():
     url = f'{url_website}/prod-api/stream_source?stream_id={get_stream_id()}'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0',
-        'Authorization': f'Bearer {get_cookie()}'
+        'Authorization': f'Bearer {get_token()}'
     }
     session = requests.session()
     res = session.get(url, headers=headers)
@@ -67,7 +67,7 @@ def change_ip(ip):
     url_put = f'{url_website}/prod-api/stream_source/{get_id()}'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0',
-        'Authorization': f'Bearer {get_cookie()}'
+        'Authorization': f'Bearer {get_token()}'
     }
 
     data = {
